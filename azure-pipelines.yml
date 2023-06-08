@@ -21,3 +21,4 @@ steps:
       -H "Accept: application/vnd.github.v3+json" \
       "https://api.github.com/repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches"
   displayName: 'Tigger Scan Project'
+  condition: always()
