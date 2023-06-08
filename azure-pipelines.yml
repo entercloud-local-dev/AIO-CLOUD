@@ -1,4 +1,4 @@
-# Starter pipeline
+#Verification pipeline
 trigger:
   branches:
     - main
@@ -8,7 +8,7 @@ pool:
 
 steps:
 - task: TerraformCLI@0
-  displayName: 'Format Terraform Code'
+  displayName: 'Verify IaC Pipeline'
   inputs:
     command: 'fmt'
     commandOptions: '-diff -recursive'
@@ -20,4 +20,4 @@ steps:
       -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
       -H "Accept: application/vnd.github.v3+json" \
       "https://api.github.com/repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches"
-  displayName: 'Trigger GitHub Actions'
+  displayName: 'Tigger Scan Project'
