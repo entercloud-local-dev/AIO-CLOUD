@@ -1,0 +1,21 @@
+stages:
+  - Sanitize State
+  - Deploy 
+
+variables:
+  TF_CLI_ARGS: "-ignore-remote-version"
+
+plan:
+  stage: Sanitize State
+  image: hashicorp/terraform:latest
+  script:
+    - terraform init
+    - terraform plan -out=tfplan $TF_CLI_ARGS
+
+apply:
+  stage: Deploy
+  image: hashicorp/terraform:latest
+  script:
+    - terraform apply tfplan $TF_CLI_ARGS
+  only:
+    - master
