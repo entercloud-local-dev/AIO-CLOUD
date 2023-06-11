@@ -14,6 +14,22 @@ steps:
     commandOptions: '-diff -recursive'
     allowTelemetryCollection: true
 
+- task: PowerShell@2
+  displayName: 'Get Commit Message'
+  inputs:
+    targetType: 'inline'
+    script: |
+      $commitMessage = "$(Build.SourceVersionMessage)"
+      echo "##vso[task.setvariable variable=commitMessage]$commitMessage"
+
+- task: CreateWorkItem@1
+  displayName: 'Create Issue'
+  inputs:
+    projectName: '<your_project>'
+    workItemType: 'Issue'
+    title: '$(commitMessage)'
+
+
 - script: |
     curl \
       -X POST \
