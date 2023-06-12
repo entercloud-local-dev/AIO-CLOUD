@@ -1,6 +1,5 @@
 # AIO-CLOUD
-all in one cloud that utilizing Azure DevOps pipeline, GitHub Actions and Gitlab pipelines to deploy a set of  resources across GCP, AWS and Azure in parallel  
-
+all in one cloud that utilizing Azure DevOps pipeline, GitHub Actions and Gitlab pipelines to deploy a set of  resources across GCP, AWS and Azure in parallel
 
 
 As th Developer encodes the initialing change as a contibuter, it is tagged under the following classifications 
@@ -15,7 +14,7 @@ As the Change is Initially Commited from the Developers Local Repository to the 
 Primary Verification Tasks are complete which is dedicateed to the Azure DevOps Pipeline
 
 ![Verification Project](test/src/images/Verify-min.png)
- - dev dot azure.com
+ - Azure Pipelines - [Verification Pipeline](https://github.com/entercloud-local-dev/AIO-CLOUD/blob/main/azure-pipelines.yml)
 
 
 On Success of verification the master pipeline continues externally into a Scaning this proccss is invoked by github Actions workflow. 
@@ -24,7 +23,7 @@ This is a didicdated pipeline to Scaning that updates to previously created tick
 
 ![Scan Project](test/src/images/Scan-min.png)
 
--  github dot com/entercloud-local-dev/AIO-CLOUD/actions
+-  - Gihub actions -  [Scaning Pipeline](https://github.com/entercloud-local-dev/AIO-CLOUD/tree/main/.github/workflows)
 
 The final Pipeines components established the Docker Contaianer in which the Native Cloud Developement Kits will initialed the explicited cloud resources defined as constants. 
 
@@ -32,11 +31,12 @@ The final Pipeines components established the Docker Contaianer in which the Nat
 
 ![Deploy Project](test/src/images/Deploy-min.png)
 
-- gitlab dot /andrewpsp/AIO-CLOUD
+- Gitlab CI -  [Deployment Pipeline](https://github.com/entercloud-local-dev/AIO-CLOUD/blob/main/.gitlab-ci.yml)
 
 
 
-##  Manually build ( Must have Azure, Gitlab, Git Access including Authentication Tokens in order to converge any cloud resouces from the cloud providers and registries )  
+##  Manually build 
+######  This is reference project as a production systm must have Azure, Gitlab, Git Access IDs including Authentication Tokens in order to converge any cloud resouces from the cloud providers and registries
 
 Build Docker Image 
 
